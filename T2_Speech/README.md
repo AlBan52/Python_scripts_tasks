@@ -42,7 +42,7 @@ print(was + trans)
 ```
 
 ### Output results
-
+![](https://github.com/AlBan52/Python_scripts_tasks/blob/master/T2_Speech/screenshots/Output_results.png)
 
 ### Project Goals
 
