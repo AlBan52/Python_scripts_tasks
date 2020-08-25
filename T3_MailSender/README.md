@@ -40,11 +40,6 @@ PASSWORD=1234
 
 If your mail sender account not on the ```gmail.com``` host - you need change ```SMTP_SSL``` in 39th line of the code.
 
-
-
-### Output results
-
-
 ### Project Goals
 
 The code is written for educational purposes on online-course for web-developers [dvmn.org](https://dvmn.org/).
