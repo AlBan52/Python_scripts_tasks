@@ -1,6 +1,6 @@
 from PIL import Image
 
-image = Image.open("monro.jpg")
+image = Image.open('monro.jpg')
 
 if image.mode != "RGB":
     image = image.convert("RGB")
@@ -25,5 +25,5 @@ cropped_both_green = green.crop(coordinates_bothsides_offset)
 
 new_image = Image.merge("RGB", (offset_red, offset_blue, cropped_both_green))
 new_image.save('new_image.jpg')
-new_image.thumbnail((80, 64))
+new_image.thumbnail((80, 80), reducing_gap=3.0)
 new_image.save('avatar.jpg')
