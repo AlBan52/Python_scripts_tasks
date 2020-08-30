@@ -126,3 +126,4 @@ dmypy.json
 
 # Bynari files (sql, pdf, audio, video)
 *.pdf
+*.jpg
