@@ -6,18 +6,13 @@ from pytimeparse import parse
 load_dotenv()
 token = os.getenv('TOKEN')
 chat_id = os.getenv('CHAT_ID')
-
 bot = ptbot.Bot(token)
-bot.send_message(chat_id, "Бот запущен")
-print('Бот запущен')
-bot.send_message(chat_id, 'На сколько запустить таймер?')
 
 
 def bot_reply(user_time_message):
     seconds = parse(user_time_message)
     bot_message_to_chat = 'Таймер запущен на {} секунд'.format(seconds)
     bot.create_timer(seconds, end_of_time)
-    print(bot_message_to_chat)
     bot.send_message(chat_id, bot_message_to_chat)
     bot.create_countdown(seconds, notify_progress, message_id=bot.send_message(chat_id, bot_message_to_chat),
                          seconds=seconds)
@@ -42,8 +37,12 @@ def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='
     return '{0} |{1}| {2}% {3}'.format(prefix, progbar, percent, suffix)
 
 
-bot.reply_on_message(bot_reply)
+def main():
+    bot.send_message(chat_id, "Бот запущен")
+    bot.send_message(chat_id, 'На сколько запустить таймер?')
+    bot.reply_on_message(bot_reply)
+    bot.run_bot()
 
 
-bot.run_bot()
-
+if __name__ == '__main__':
+    main()
