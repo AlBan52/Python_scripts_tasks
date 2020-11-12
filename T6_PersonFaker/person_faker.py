@@ -4,7 +4,7 @@ from faker import Faker
 
 fake = Faker("ru_RU")
 
-skills_list = [
+skills = [
    "Стремительный прыжок",
    "Электрический выстрел",
    "Ледяной удар",
@@ -41,27 +41,38 @@ letters_mapping = {
 }
 runic_skills = []
 
-for skill in skills_list:
+for skill in skills:
     for key in letters_mapping.keys():
         skill = skill.replace(key, str(letters_mapping[key]))
     runic_skills.append(skill)
 
-for i in range(10):
-    random_skills_list = random.sample(runic_skills, 3)
+sex = ['male', 'female']
+person_amount = 10
+min_ability_value = 8
+max_ability_value = 14
+for person in range(person_amount):
+    random_skills = random.sample(runic_skills, 3)
+    random_sex = random.choice(sex)
+    if random_sex == 'male':
+        first_name = fake.first_name_male()
+        last_name = fake.last_name_male()
+    else:
+        first_name = fake.first_name_female()
+        last_name = fake.last_name_female()
     context = {
-      "first_name": fake.first_name_male(),
-      "last_name": fake.last_name_male(),
+      "first_name": first_name,
+      "last_name": last_name,
       "job": fake.job(),
       "town": fake.city(),
-      "strength": random.randint(8, 14),
-      "agility": random.randint(8, 14),
-      "endurance": random.randint(8, 14),
-      "intelligence": random.randint(8, 14),
-      "luck": random.randint(8, 14),
-      "skill_1": random_skills_list[0],
-      "skill_2": random_skills_list[1],
-      "skill_3": random_skills_list[2]
+      "strength": random.randint(min_ability_value, max_ability_value),
+      "agility": random.randint(min_ability_value, max_ability_value),
+      "endurance": random.randint(min_ability_value, max_ability_value),
+      "intelligence": random.randint(min_ability_value, max_ability_value),
+      "luck": random.randint(min_ability_value, max_ability_value),
+      "skill_1": random_skills[0],
+      "skill_2": random_skills[1],
+      "skill_3": random_skills[2]
     }
 
-    file_operations.render_template("templates/charsheet.svg", "output/svg/charsheet_{}.svg".format(i+1), context)
+    file_operations.render_template("templates/charsheet.svg", "output/svg/charsheet_{}.svg".format(person+1), context)
 
