@@ -13,11 +13,15 @@ You need to copy file_operations.py in current directory.
 
 ### How to use
 
-Then you run this code, you'l see in ```output\svg``` directory 10 .svg files with unical personal profiles.
-If you need to create more than 10 profiles, you need to change range value in 49th line of the code:
+Befor you run this code, you need to change the next variables values:
 ```python
-for i in range(10):
+person_amount = 10
+min_ability_value = 8
+max_ability_value = 14
 ```
+This variables could have different values, as you need.
+
+For this case 10 .svg files with unical personal profiles in ```output\svg``` directory will be created.
 
 ### Output results
 
