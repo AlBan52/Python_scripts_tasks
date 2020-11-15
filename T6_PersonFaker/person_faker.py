@@ -46,19 +46,17 @@ for skill in skills:
         skill = skill.replace(key, str(letters_mapping[key]))
     runic_skills.append(skill)
 
-sex = ['male', 'female']
 person_amount = 10
 min_ability_value = 8
 max_ability_value = 14
 for person in range(person_amount):
     random_skills = random.sample(runic_skills, 3)
-    random_sex = random.choice(sex)
-    if random_sex == 'male':
-        first_name = fake.first_name_male()
-        last_name = fake.last_name_male()
-    else:
-        first_name = fake.first_name_female()
-        last_name = fake.last_name_female()
+    male_name = [fake.first_name_male(), fake.last_name_male()]
+    female_name = [fake.first_name_female(), fake.last_name_female()]
+    names = [male_name, female_name]
+    random_name = random.choice(names)
+    first_name = random_name[0]
+    last_name = random_name[1]
     context = {
       "first_name": first_name,
       "last_name": last_name,
