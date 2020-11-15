@@ -9,10 +9,12 @@ Then use `pip` (or `pip3`, if there is a conflict with Python2) to install depen
 ```
 pip install -r requirements.txt
 ```
-You need to copy file_operations.py in current directory.
+You need to copy ```file_operations.py``` in current directory. This file is the local library for the ```person_faker.py```
 
 ### How to use
 
+Previosly you have two ```.py``` files in your working directory: ```file_operations.py, person_faker.py ```
+For getting results, you have to run the ```person_faker.py``` code.
 Befor you run this code, you need to change the next variables values:
 ```python
 person_amount = 10
@@ -21,11 +23,11 @@ max_ability_value = 14
 ```
 This variables could have different values, as you need.
 
-For this case 10 .svg files with unical personal profiles in ```output\svg``` directory will be created.
+For this case 10 ```.svg``` files with unical personal profiles in ```output\svg``` directory will be created.
 
 ### Output results
 
-As results you get 10 or more .svg files with unical personal profiles.
+As results you get 10 or more ```.svg``` files with unical personal profiles.
 
 ### Project Goals
 
